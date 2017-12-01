@@ -8,6 +8,7 @@ class Config(object):
     LOG_MAX_BYTES = 10000
     LOG_BACKUP_COUNT = 1
     LOG_LEVEL = ['INFO', 'ERROR']
+    HOST = "0.0.0.0"
     PORT = 5000
 
 
