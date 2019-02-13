@@ -32,7 +32,7 @@ def create_app(name, config='config.ProductionConfig'):
                 raise Exception('Invalid logging level')
     else:
         handler.setLevel(logging.INFO)
-        print 'No "LOG_LEVEL" found defaulting to "INFO"'
+        print('No "LOG_LEVEL" found defaulting to "INFO"')
 
     app.logger.addHandler(handler)
 
