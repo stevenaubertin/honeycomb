@@ -8,7 +8,7 @@ class Config(object):
     LOG_FILENAME = 'log'
     LOG_MAX_BYTES = 10000
     LOG_BACKUP_COUNT = 1
-    LOG_LEVEL = ['INFO', 'ERROR']
+    LOG_LEVELS = ['INFO', 'ERROR']
     HOST = "0.0.0.0"
     PORT = 5000
 
@@ -21,7 +21,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     """Development configuration"""
     DEBUG = True
-    LOG_LEVEL = ['INFO', 'ERROR', 'DEBUG']
+    LOG_LEVELS = ['INFO', 'ERROR', 'DEBUG']
 
 
 class TestingConfig(Config):

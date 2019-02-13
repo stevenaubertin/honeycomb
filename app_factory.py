@@ -10,14 +10,14 @@ def create_app(name, config='config.ProductionConfig'):
     app = Flask(name)
     app.config.from_object(config)
 
-    handler = RotatingFileHandler(
-        app.config['LOG_FILENAME'],
-        maxBytes=app.config['LOG_MAX_BYTES'],
-        backupCount=app.config['LOG_BACKUP_COUNT']
-    )
-
-    if 'LOG_LEVEL' in app.config:
-        for level in app.config['LOG_LEVEL']:
+    if 'LOG_LEVELS' in app.config:
+        for level in app.config['LOG_LEVELS']:
+            handler = RotatingFileHandler(
+                app.config['LOG_FILENAME'],
+                maxBytes=app.config['LOG_MAX_BYTES'],
+                backupCount=app.config['LOG_BACKUP_COUNT']
+            )
+            
             if level == 'INFO':
                 handler.setLevel(logging.INFO)
             elif level == 'CRITICAL':
@@ -30,10 +30,6 @@ def create_app(name, config='config.ProductionConfig'):
                 handler.setLevel(logging.FATAL)
             else:
                 raise Exception('Invalid logging level')
-    else:
-        handler.setLevel(logging.INFO)
-        print('No "LOG_LEVEL" found defaulting to "INFO"')
 
-    app.logger.addHandler(handler)
-
+            app.logger.addHandler(handler)
     return app
