@@ -21,7 +21,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     """Development configuration"""
     DEBUG = True
-    LOG_LEVEL = 'DEBUG'
+    LOG_LEVEL = ['INFO', 'ERROR', 'DEBUG']
 
 
 class TestingConfig(Config):
