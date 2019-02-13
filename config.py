@@ -5,7 +5,7 @@ import os
 
 class Config(object):
     """Base class for configuration"""
-    DEBUG = False
+    FLASK_DEBUG = False
     TESTING = False
     LOG_FILENAME = 'log'
     LOG_MAX_BYTES = 10000
@@ -22,7 +22,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     """Development configuration"""
-    DEBUG = True
+    FLASK_DEBUG = True
     LOG_LEVELS = ['INFO', 'ERROR', 'DEBUG']
 
 
