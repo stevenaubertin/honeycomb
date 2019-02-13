@@ -2,15 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import os
+import logging
+
 
 class Config(object):
     """Base class for configuration"""
     FLASK_DEBUG = False
     TESTING = False
-    LOG_FILENAME = 'log'
+    LOG_FILENAME = 'app.log'
     LOG_MAX_BYTES = 10000
     LOG_BACKUP_COUNT = 1
-    LOG_LEVELS = ['INFO', 'ERROR']
+    LOG_LEVEL = logging.INFO
+    LOG_FORMAT = '%(levelname)s:%(message)s'
     HOST = "0.0.0.0"
     PORT = os.environ.get('PORT', 5000)
 
@@ -23,7 +26,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     """Development configuration"""
     FLASK_DEBUG = True
-    LOG_LEVELS = ['INFO', 'ERROR', 'DEBUG']
+    LOG_LEVEL = 'DEBUG'
 
 
 class TestingConfig(Config):
