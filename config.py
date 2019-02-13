@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+
 class Config(object):
     """Base class for configuration"""
     DEBUG = False
@@ -10,7 +12,7 @@ class Config(object):
     LOG_BACKUP_COUNT = 1
     LOG_LEVELS = ['INFO', 'ERROR']
     HOST = "0.0.0.0"
-    PORT = 5000
+    PORT = os.environ.get('PORT', 5000)
 
 
 class ProductionConfig(Config):
