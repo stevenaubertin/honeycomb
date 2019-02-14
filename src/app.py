@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from flask import request
-from app_factory import create_app
+from src.app_factory import create_app
 
 app = create_app(__name__)
 
