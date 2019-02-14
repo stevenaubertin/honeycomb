@@ -10,7 +10,7 @@ ARG DESCRIPTION
 ARG VERSION
 ARG VCS_URL
 
-# Set some envirronement variables
+# Set some environment variables
 ENV PORT=$PORT
 ENV HOST=0.0.0.1
 ENV LOG_FILENAME="app.log"
