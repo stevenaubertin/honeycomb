@@ -17,7 +17,7 @@ class Config(object):
     LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     HOST = os.environ.get('HOST', '0.0.0.0')
     PORT = os.environ.get('PORT', 5000)
-    SECRET_KEY = None
+    SECRET_KEY = os.environ.get('SECRET_KEY', None)
 
 
 class ProductionConfig(Config):
