@@ -13,11 +13,16 @@ def create_app(name, config='config.ProductionConfig'):
     app.logger = logging.getLogger(name)
     if 'LOG_LEVEL' in app.config:
         app.logger.setLevel(app.config['LOG_LEVEL'])
-    
-    app.logger.addHandler(RotatingFileHandler(
+
+    handler = RotatingFileHandler(
         app.config['LOG_FILENAME'],
         maxBytes=app.config['LOG_MAX_BYTES'],
         backupCount=app.config['LOG_BACKUP_COUNT']
-    ))
+    )
+    app.logger.addHandler(handler)
+
+    if 'LOG_FORMAT' in app.config:
+        formatter = logging.Formatter(app.config['LOG_FORMAT'])
+        handler.setFormatter(formatter)
 
     return app
