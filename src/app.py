@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from src.app_factory import create_app
+from app_factory import create_app
 
 app = create_app(__name__)
 
