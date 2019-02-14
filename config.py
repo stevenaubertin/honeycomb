@@ -7,7 +7,8 @@ import logging
 
 class Config(object):
     """Base class for configuration"""
-    FLASK_DEBUG = False
+    ENV = 'development'
+    DEBUG = False
     TESTING = False
     LOG_FILENAME = 'app.log'
     LOG_MAX_BYTES = 10000
@@ -16,19 +17,22 @@ class Config(object):
     LOG_FORMAT = '%(levelname)s:%(message)s'
     HOST = "0.0.0.0"
     PORT = os.environ.get('PORT', 5000)
+    SECRET_KEY = None
 
 
 class ProductionConfig(Config):
     """Production configuration"""
-    pass
+    ENV = 'production'
 
 
 class DevelopmentConfig(Config):
     """Development configuration"""
-    FLASK_DEBUG = True
-    LOG_LEVEL = 'DEBUG'
+    ENV = 'development'
+    DEBUG = True
+    LOG_LEVEL = logging.DEBUG
 
 
 class TestingConfig(Config):
     """Testing configuration"""
+    ENV = 'test'
     TESTING = True
