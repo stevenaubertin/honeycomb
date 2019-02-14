@@ -1,13 +1,19 @@
 # Use an official Python runtime as a base image
 FROM python:3-alpine
 
+# Set arguments
 ARG BUILD_DATE
 ARG VCS_REF
 ARG PROJECT_NAME
-ARG PORT
+ARG PORT=5000
 ARG DESCRIPTION
 ARG VERSION
 ARG VCS_URL
+
+# Set some envirronement variables
+ENV PORT=$PORT
+ENV HOST=0.0.0.1
+ENV LOG_FILENAME="app.log"
 
 # Set labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \

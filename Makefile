@@ -6,14 +6,14 @@
 
 IMAGE_NAME=x0re/honeycomb
 CONTAINER_NAME=honeycomb
-PORT=5000
+PORT=5001
 VERSION=0.1
 DESCRIPTION="Flask boilerplate"
 PROJECT_NAME="honeycomb"
 VCS_URL="https://github.com/stevenaubertin/honeycomb"
 
 build:
-	docker build --tag $(IMAGE_NAME) .
+	docker build --build-arg PORT=$(PORT) --tag $(IMAGE_NAME) .
 
 release:
 	docker build \
