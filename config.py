@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# Documentation about configuration can be found : http://flask.pocoo.org/docs/1.0/config
 
 import os
 import logging
@@ -9,7 +10,6 @@ class Config(object):
     """Base class for configuration"""
     ENV = 'development'
     DEBUG = False
-    TESTING = False
     LOG_FILENAME = os.environ.get('LOG_FILENAME', 'app.log')
     LOG_MAX_BYTES = 10000
     LOG_BACKUP_COUNT = 1
@@ -17,6 +17,10 @@ class Config(object):
     LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     HOST = os.environ.get('HOST', '0.0.0.0')
     PORT = os.environ.get('PORT', 5000)
+
+    """A secret key that will be used for securely signing the session cookie and can be used for any other security 
+    related needs by extensions or your application. It should be a long random string of bytes, 
+    although unicode is accepted too. For example, copy the output of this to your config:"""
     SECRET_KEY = os.environ.get('SECRET_KEY', None)
 
 
@@ -35,4 +39,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     """Testing configuration"""
     ENV = 'test'
+
+    """Enable testing mode. Exceptions are propagated rather than handled by the the app’s error handlers. 
+    Extensions may also change their behavior to facilitate easier testing. You should enable this in your own tests."""
     TESTING = True
