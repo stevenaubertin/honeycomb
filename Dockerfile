@@ -9,11 +9,13 @@ ARG PORT=5000
 ARG DESCRIPTION
 ARG VERSION
 ARG VCS_URL
+ARG CONFIG_ENV="config.DevelopmentConfig"
 
 # Set some environment variables
 ENV PORT=$PORT
 ENV HOST=0.0.0.0
 ENV LOG_FILENAME="app.log"
+ENV CONFIG_ENV=$CONFIG_ENV
 
 # Set labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \

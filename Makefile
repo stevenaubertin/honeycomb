@@ -6,14 +6,16 @@
 
 IMAGE_NAME=x0re/honeycomb
 CONTAINER_NAME=honeycomb
-PORT=5001
+PORT=5000
 VERSION=0.1
 DESCRIPTION="Flask boilerplate"
 PROJECT_NAME="honeycomb"
 VCS_URL="https://github.com/stevenaubertin/honeycomb"
 
 build:
-	docker build --build-arg PORT=$(PORT) --tag $(IMAGE_NAME) .
+	docker build \
+		--build-arg CONFIG_ENV="config.DevelopmentConfig" \
+		--build-arg PORT=$(PORT) --tag $(IMAGE_NAME) .
 
 release:
 	docker build \
@@ -22,6 +24,7 @@ release:
 		--build-arg PORT=$(PORT) \
 		--build-arg VERSION=$(VERSION) \
 		--build-arg VCS_URL=$(VCS_URL) \
+		--build-arg CONFIG_ENV="config.ProductionConfig" \
 		--build-arg VCS_REF=`git rev-parse --short HEAD` \
 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t $(IMAGE_NAME) .
 

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
 from flask import Flask
 import logging
 from logging.handlers import RotatingFileHandler
 
 
-def create_app(name, config='config.ProductionConfig'):
+def create_app(name):
+    config = os.environ.get('CONFIG_ENV', 'config.ProductionConfig')
     app = Flask(name)
     app.config.from_object(config)
     
