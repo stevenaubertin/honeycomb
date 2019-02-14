@@ -7,7 +7,6 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 # The files least likely to be changed should be in lower layers,
 # while the files most likely to change should be added last.
-COPY ../requirements.txt /app/
 COPY . /app/
 
 # Install any needed packages specified in requirements.txt
