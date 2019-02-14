@@ -8,8 +8,9 @@ from logging.handlers import RotatingFileHandler
 
 
 def create_app(name):
-    config = os.environ.get('CONFIG_ENV', 'config.ProductionConfig')
     app = Flask(name)
+
+    config = os.environ.get('CONFIG_ENV', 'config.DevelopmentConfig')
     app.config.from_object(config)
     
     app.logger = logging.getLogger(name)
