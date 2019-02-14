@@ -2,7 +2,6 @@
 # This file was greatly inspired
 # from : https://github.com/nikos/python3-alpine-flask-docker/blob/master/Makefile
 
-
 .PHONY: clean build run stop inspect
 
 IMAGE_NAME=x0re/honeycomb
