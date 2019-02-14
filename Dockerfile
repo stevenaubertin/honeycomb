@@ -5,7 +5,10 @@ FROM python:3-alpine
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-ADD . /app
+# The files least likely to be changed should be in lower layers,
+# while the files most likely to change should be added last.
+COPY requirements.txt /app
+COPY *.py /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
