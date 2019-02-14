@@ -7,6 +7,7 @@ ARG PROJECT_NAME
 ARG PORT
 ARG DESCRIPTION
 ARG VERSION
+ARG VCS_URL
 
 # Set labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \
@@ -14,7 +15,7 @@ LABEL maintainer="stevenaubertin@gmail.com" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.name=$PROJECT_NAME \
       org.label-schema.description=$DESCRIPTION \
-      org.label-schema.vcs-url="https://github.com/stevenaubertin/honeycomb" \
+      org.label-schema.vcs-url=$VCS_URL \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
