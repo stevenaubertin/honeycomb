@@ -12,7 +12,7 @@ ARG VCS_URL
 
 # Set some environment variables
 ENV PORT=$PORT
-ENV HOST=0.0.0.1
+ENV HOST=0.0.0.0
 ENV LOG_FILENAME="app.log"
 
 # Set labels (see https://microbadger.com/labels)
