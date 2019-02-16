@@ -2,14 +2,14 @@
 FROM python:3-alpine
 
 # Set arguments
-ARG BUILD_DATE
-ARG VCS_REF
-ARG PROJECT_NAME
-ARG PORT=5000
-ARG DESCRIPTION
-ARG VERSION
-ARG VCS_URL
-ARG CONFIG_ENV="config.DevelopmentConfig"
+ARG BUILD_DATE \ 
+	VCS_REF \
+	PROJECT_NAME \
+	PORT=5000 \
+	DESCRIPTION \
+	VERSION \
+	VCS_URL \
+	CONFIG_ENV="config.DevelopmentConfig"
 
 # Set some environment variables
 ENV PORT=$PORT
