@@ -2,7 +2,7 @@
 # This file was greatly inspired
 # from : https://github.com/nikos/python3-alpine-flask-docker/blob/master/Makefile
 
-.PHONY: clean build run stop inspect release shell eject
+.PHONY: clean build run stop inspect release shell
 
 IMAGE_NAME=x0re/honeycomb
 CONTAINER_NAME=honeycomb
