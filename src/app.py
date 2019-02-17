@@ -3,13 +3,15 @@
 
 import json
 from app_factory import create_app
+from flask_restplus import Resource, Api
 
-app = create_app(__name__)
+app, api = create_app(__name__)
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return json.dumps({'success': 'TODO'})
+@api.route('/')
+class Index(Resource):
+    def get(self):
+        return json.dumps({'success': 'TODO'})
 
 
 if __name__ == "__main__":

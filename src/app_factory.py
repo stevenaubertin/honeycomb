@@ -3,12 +3,14 @@
 
 import os
 from flask import Flask
+from flask_restplus import Api
 import logging
 from logging.handlers import RotatingFileHandler
 
 
 def create_app(name):
     app = Flask(name)
+    api = Api(app)
 
     config = os.environ.get('CONFIG_ENV', 'config.DevelopmentConfig')
     app.config.from_object(config)
@@ -28,4 +30,4 @@ def create_app(name):
         formatter = logging.Formatter(app.config['LOG_FORMAT'])
         handler.setFormatter(formatter)
 
-    return app
+    return app, api
