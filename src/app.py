@@ -8,10 +8,10 @@ from flask_restplus import Resource, Api
 app, api = create_app(__name__)
 
 
-@api.route('/')
-class Index(Resource):
+@api.route('/hello')
+class HelloWorld(Resource):
     def get(self):
-        return json.dumps({'success': 'TODO'})
+        return {'hello': 'world'}
 
 
 if __name__ == "__main__":
