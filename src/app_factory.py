@@ -6,6 +6,7 @@ from flask import Flask
 from flask_restplus import Api
 import logging
 from logging.handlers import RotatingFileHandler
+from resources import setup_resources
 
 
 def setup_config(app):
@@ -49,5 +50,6 @@ def create_app(name):
     setup_config(app)
     setup_logger(app, name)
     setup_api(app)
+    setup_resources(app.api)
 
     return app

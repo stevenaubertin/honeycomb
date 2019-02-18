@@ -4,11 +4,8 @@
 import json
 from app_factory import create_app
 from flask_restplus import Resource, Api
-from resources import setup_resources
 
 app = create_app(__name__)
-setup_resources(app.api)
-
 
 if __name__ == "__main__":
     app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])
