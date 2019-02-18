@@ -4,7 +4,7 @@
 from flask_restplus import Resource, Api
 
 def setup_resources(api):
-    @api.route('/hello')
+    @api.route('/About')
     class About(Resource):
         def get(self):
             return {
