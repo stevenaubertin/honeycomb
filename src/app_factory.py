@@ -12,8 +12,8 @@ def setup_config(app):
     config = os.environ.get('CONFIG_ENV', 'config.DevelopmentConfig')
     app.config.from_object(config)
 
-    def get_config_or_default(self, config_key, default_value):
-        return self[config_key] if config_key in self else default_value
+    def get_config_or_default(config_key, default_value):
+        return app.config[config_key] if config_key in app.config else default_value
 
     app.config.get_config_or_default = get_config_or_default
 
