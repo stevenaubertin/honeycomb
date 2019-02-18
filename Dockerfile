@@ -38,7 +38,8 @@ LABEL maintainer="stevenaubertin@gmail.com" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-#-------------------------------- Set the working directory to /app
+#-------------------------------- Set Source
+# Set the working directory to /app
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
