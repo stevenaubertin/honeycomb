@@ -2,25 +2,31 @@
 FROM python:3-alpine
 
 # Set arguments
-ARG BUILD_DATE
-ARG VCS_REF
+# Environnement
 ARG PROJECT_NAME='Honeycomb'
+ARG CONFIG_ENV="config.DevelopmentConfig"
+# Api
+ARG TITLE=$PROJECT_NAME
+ARG VERSION
+ARG DESCRIPTION
+# Web Server
 ARG HOST=0.0.0.0
 ARG PORT=5000
-ARG DESCRIPTION
-ARG VERSION
+# 
 ARG VCS_URL
-ARG CONFIG_ENV="config.DevelopmentConfig"
-ARG TITLE=$PROJECT_NAME
+ARG BUILD_DATE
+ARG VCS_REF
 
 # Set some environment variables
-ENV PORT=$PORT
-ENV HOST=$HOST
 ENV LOG_FILENAME="app.log"
 ENV CONFIG_ENV=$CONFIG_ENV
+# Api
+ENV TITLE=$TITLE
 ENV VERSION=$VERSION
 ENV DESCRIPTION=$DESCRIPTION
-ENV TITLE=$TITLE
+# Web Server
+ENV PORT=$PORT
+ENV HOST=$HOST
 
 # Set labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \
