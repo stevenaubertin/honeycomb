@@ -18,7 +18,7 @@ ARG VCS_REF
 ARG BUILD_DATE
 
 #--------------------------- Set Environment variables
-ENV LOG_FILENAME="app.log"
+# Environnement
 ENV CONFIG_ENV=$CONFIG_ENV
 # Api
 ENV TITLE=$TITLE
@@ -27,6 +27,8 @@ ENV DESCRIPTION=$DESCRIPTION
 # Web Server
 ENV PORT=$PORT
 ENV HOST=$HOST
+# Logger
+ENV LOG_FILENAME="app.log"
 
 #--------------------------- Set Labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \
