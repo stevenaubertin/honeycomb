@@ -4,15 +4,10 @@
 import json
 from app_factory import create_app
 from flask_restplus import Resource, Api
+from resources import setup_resources
 
 app = create_app(__name__)
-api = app.api
-
-
-@api.route('/hello')
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
+setup_resources(app.api)
 
 
 if __name__ == "__main__":
