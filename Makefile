@@ -9,8 +9,9 @@ CONTAINER_NAME=honeycomb
 PORT=5000
 VERSION=0.1
 DESCRIPTION="Flask boilerplate"
-PROJECT_NAME="honeycomb"
+PROJECT_NAME="Honeycomb"
 VCS_URL="https://github.com/stevenaubertin/honeycomb"
+TITLE=$(PROJECT_NAME)
 
 build:
 	docker build \
@@ -23,6 +24,7 @@ release:
 		--build-arg DESCRIPTION=$(DESCRIPTION) \
 		--build-arg PORT=$(PORT) \
 		--build-arg VERSION=$(VERSION) \
+		--build-arg TITLE=$(TITLE) \
 		--build-arg VCS_URL=$(VCS_URL) \
 		--build-arg CONFIG_ENV="config.ProductionConfig" \
 		--build-arg VCS_REF=`git rev-parse --short HEAD` \
