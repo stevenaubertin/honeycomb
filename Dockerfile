@@ -5,6 +5,8 @@ FROM python:3-alpine
 # Environnement
 ARG PROJECT_NAME='Honeycomb'
 ARG CONFIG_ENV="config.DevelopmentConfig"
+# Logger
+ARG LOG_FILENAME="app.log"
 # Api
 ARG TITLE=$PROJECT_NAME
 ARG VERSION
@@ -16,12 +18,12 @@ ARG PORT=5000
 ARG VCS_URL
 ARG VCS_REF
 ARG BUILD_DATE
-# Logger
-ARG LOG_FILENAME="app.log"
 
 #--------------------------- Set Environment variables
 # Environnement
 ENV CONFIG_ENV=$CONFIG_ENV
+# Logger
+ENV LOG_FILENAME=$LOG_FILENAME
 # Api
 ENV TITLE=$TITLE
 ENV VERSION=$VERSION
@@ -29,8 +31,6 @@ ENV DESCRIPTION=$DESCRIPTION
 # Web Server
 ENV PORT=$PORT
 ENV HOST=$HOST
-# Logger
-ENV LOG_FILENAME=$LOG_FILENAME
 
 #--------------------------- Set Labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \
