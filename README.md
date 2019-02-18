@@ -1,4 +1,4 @@
-# honeycomb [![Build Status](https://travis-ci.org/stevenaubertin/honeycomb.svg?branch=master)](https://github.com/stevenaubertin/honeycomb)
+# honeycomb [![Build Status](https://travis-ci.org/stevenaubertin/honeycomb.svg?branch=master)](https://travis-ci.org/stevenaubertin/honeycomb)
 
 Sample Docker container for a Python 3 Flask based application with minimal footprint.
 
