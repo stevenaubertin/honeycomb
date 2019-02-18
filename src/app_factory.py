@@ -46,10 +46,11 @@ def setup_api(app):
 
 def create_app(name):
     app = Flask(name)
-
+    
     setup_config(app)
     setup_logger(app, name)
     setup_api(app)
+    # Gather resources from the src/resources/resources.py
     setup_resources(app.api)
 
     return app
