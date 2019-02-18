@@ -8,14 +8,18 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 
-def create_app(name):
-    app = Flask(name)
-    api = Api(app)
-
+def setup_config(app):
     config = os.environ.get('CONFIG_ENV', 'config.DevelopmentConfig')
     app.config.from_object(config)
-    
-    app.logger = logging.getLogger(name)
+
+    def get_config_or_default(self, config_key, default_value):
+        return self[config_key] if config_key in self else default_value
+
+    app.config.get_config_or_default = get_config_or_default
+
+
+def setup_logger(app, logger_name):
+    app.logger = logging.getLogger(logger_name)
     if 'LOG_LEVEL' in app.config:
         app.logger.setLevel(app.config['LOG_LEVEL'])
 
@@ -30,4 +34,20 @@ def create_app(name):
         formatter = logging.Formatter(app.config['LOG_FORMAT'])
         handler.setFormatter(formatter)
 
-    return app, api
+
+def setup_api(app):
+    version = app.config.get_config_or_default('VERSION', '1.0')
+    title = app.config.get_config_or_default('TITLE', 'Honeycomb')
+    description = app.config.get_config_or_default('DESCRIPTION', '{} api version : {}'.format(title, version))
+
+    app.api = Api(app, version=version, title=title, description=description)
+
+
+def create_app(name):
+    app = Flask(name)
+
+    setup_config(app)
+    setup_logger(app, name)
+    setup_api(app)
+
+    return app

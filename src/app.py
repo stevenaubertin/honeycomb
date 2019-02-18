@@ -5,7 +5,8 @@ import json
 from app_factory import create_app
 from flask_restplus import Resource, Api
 
-app, api = create_app(__name__)
+app = create_app(__name__)
+api = app.api
 
 
 @api.route('/hello')
