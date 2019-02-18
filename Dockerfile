@@ -16,6 +16,8 @@ ARG PORT=5000
 ARG VCS_URL
 ARG VCS_REF
 ARG BUILD_DATE
+# Logger
+ARG LOG_FILENAME="app.log"
 
 #--------------------------- Set Environment variables
 # Environnement
@@ -28,7 +30,7 @@ ENV DESCRIPTION=$DESCRIPTION
 ENV PORT=$PORT
 ENV HOST=$HOST
 # Logger
-ENV LOG_FILENAME="app.log"
+ENV LOG_FILENAME=$LOG_FILENAME
 
 #--------------------------- Set Labels (see https://microbadger.com/labels)
 LABEL maintainer="stevenaubertin@gmail.com" \
