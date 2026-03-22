@@ -104,3 +104,6 @@ ENV/
 node_modules/
 
 \.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
